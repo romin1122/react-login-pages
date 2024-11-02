@@ -15,7 +15,7 @@ function SubmitForm({
     <div className='flex justify-center'>
       <button
         className={
-          'w-full bg-[#c1121f] p-3 rounded-full text-white font-semibold disabled:brightness-75 hover:brightness-75 ' +
+          'w-full p-3 font-semibold disabled:brightness-75 hover:brightness-75 ' +
           className
         }
         onClick={handleSubmit}

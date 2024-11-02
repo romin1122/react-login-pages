@@ -39,22 +39,25 @@ function ClassicLoginForm() {
     <div>
       <EmailOrPhoneInput
         setInputs={setInputs}
-        className='mb-4'
+        wrapperClass='mb-4'
+        inputClass='border rounded focus:border-2'
         disabled={mutation.isLoading}
       />
       <PasswordInput
         setInputs={setInputs}
-        className='mb-1'
+        wrapperClass='mb-1'
+        inputClass='border rounded focus:border-2'
         disabled={mutation.isLoading}
       />
       <LinkButton
-        className='mb-3'
+        wrapperClass='mb-3'
         preText=''
         linkText='Forgot Password?'
         linkTo='/classic/forgot-password'
       />
       <SubmitForm
         text='Sign in'
+        className='bg-[#c1121f] rounded-full text-white'
         handleSubmit={() => {
           mutation.mutate();
         }}

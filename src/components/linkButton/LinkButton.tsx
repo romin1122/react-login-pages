@@ -2,22 +2,26 @@ import { Link } from 'react-router-dom';
 
 type RegisterButtonProps = {
   preText: string;
-  className?: string;
+  wrapperClass?: string;
+  textClass?: string;
   linkText: string;
   linkTo: string;
 };
 
 function LinkButton({
   preText,
-  className,
+  wrapperClass,
+  textClass,
   linkText,
   linkTo,
 }: RegisterButtonProps) {
   return (
-    <div className={className}>
+    <div className={wrapperClass}>
       {preText + ' '}
       <Link to={linkTo}>
-        <span className='text-[#c1121f] font-bold hover:underline'>
+        <span
+          className={'text-[#c1121f] font-bold hover:underline ' + textClass}
+        >
           {linkText}
         </span>
       </Link>

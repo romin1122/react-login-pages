@@ -32,7 +32,8 @@ function ClassicForgotPasswordForm() {
     <div>
       <EmailOrPhoneInput
         setInputs={setInputs}
-        className='mb-4'
+        wrapperClass='mb-4'
+        inputClass='border rounded focus:border-2'
         disabled={mutation.isLoading}
       />
 
@@ -42,7 +43,7 @@ function ClassicForgotPasswordForm() {
       </div>
 
       <SubmitForm
-        className='mb-2'
+        className='bg-[#c1121f] rounded-full text-white mb-2'
         text='Next'
         handleSubmit={() => {
           mutation.mutate();
@@ -50,10 +51,10 @@ function ClassicForgotPasswordForm() {
         disabled={mutation.isLoading}
       />
       <SubmitForm
-        className='bg-white text-gray-900 w-fit px-5 py-2'
+        className='bg-white text-gray-900 max-w-fit px-2 py-2 rounded-full'
         text='Back'
         handleSubmit={() => {
-          navigate('/classic/register');
+          navigate('/classic/login');
         }}
       />
     </div>

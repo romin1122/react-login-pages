@@ -3,11 +3,6 @@ import EmailOrPhoneInput from '../../emailOrPhoneInput/EmailOrPhoneInput';
 import PasswordInput from '../../passwordInput/PasswordInput';
 import SubmitForm from '../../submitForm/SubmitForm';
 import { useState } from 'react';
-import {
-  validateEmailOrPhone,
-  validatePassword,
-} from '../../../utilities/inputValidations';
-import ConfirmPasswordInput from '../../confirmPasswordInput/ConfirmPasswordInput';
 
 type InputsType = {
   emailOrPhone: string;
@@ -15,11 +10,11 @@ type InputsType = {
   confirmPassword?: string;
 };
 
-function ClassicRegisterForm() {
+function ModernLoginForm({ className }: { className?: string }) {
+  const users = [{ emailOrPhone: 'tester@gmail.com', password: '12345678' }];
   const [inputs, setInputs] = useState<InputsType>({
     emailOrPhone: '',
     password: '',
-    confirmPassword: '',
   });
 
   () => {
@@ -32,37 +27,32 @@ function ClassicRegisterForm() {
     },
     {
       onSuccess: () => {
-        validateEmailOrPhone(inputs.emailOrPhone) &&
-        validatePassword(inputs.password || '')
-          ? alert('Register successful!')
-          : alert('Invalid inputs!');
+        inputs.emailOrPhone == users[0].emailOrPhone &&
+        inputs.password == users[0].password
+          ? alert('Login successful!')
+          : alert('Invalid credentials!');
       },
     }
   );
   return (
-    <div>
+    <div className={className}>
       <EmailOrPhoneInput
         setInputs={setInputs}
-        wrapperClass='mb-4'
-        inputClass='border rounded focus:border-2'
+        wrapperClass='mb-5'
+        inputClass='border-b-2 bg-gray-50 focus:border-b-3 focus:bg-gray-100'
+        invalidBorder='border-red-500 bg-red-100 focus:bg-red-100'
         disabled={mutation.isLoading}
       />
       <PasswordInput
         setInputs={setInputs}
-        wrapperClass='mb-3'
-        inputClass='border rounded focus:border-2'
-        disabled={mutation.isLoading}
-      />
-      <ConfirmPasswordInput
-        setInputs={setInputs}
-        password={inputs.password || ''}
-        wrapperClass='mb-3'
-        inputClass='border rounded focus:border-2'
+        wrapperClass='mb-7'
+        inputClass='border-b-2 bg-gray-50 focus:border-b-3 focus:bg-gray-100'
+        invalidBorder='border-red-500 bg-red-100 focus:bg-red-100'
         disabled={mutation.isLoading}
       />
       <SubmitForm
-        text='Sign up'
-        className='bg-[#c1121f] rounded-full text-white'
+        text='Login'
+        className='bg-gray-900 rounded-md text-white py-2'
         handleSubmit={() => {
           mutation.mutate();
         }}
@@ -72,4 +62,4 @@ function ClassicRegisterForm() {
   );
 }
 
-export default ClassicRegisterForm;
+export default ModernLoginForm;

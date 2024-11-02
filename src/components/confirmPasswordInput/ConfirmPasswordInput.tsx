@@ -9,19 +9,28 @@ type InputsType = {
 type ConfirmPasswordInputProps = {
   setInputs: React.Dispatch<React.SetStateAction<InputsType>>;
   password: string;
-  className?: string;
+  wrapperClass?: string;
+  inputClass?: string;
+  invalidBorder?: string;
+  validBorder?: string;
   disabled?: boolean;
 };
 
 function ConfirmPasswordInput({
   setInputs,
   password,
-  className,
+  wrapperClass,
+  inputClass,
+  invalidBorder,
+  validBorder,
   disabled,
 }: ConfirmPasswordInputProps) {
   const [input, setInput] = useState('');
   const [invalid, setInvalid] = useState(false);
   const [showError, setShowError] = useState(false);
+
+  invalidBorder = invalidBorder || 'border-red-500';
+  validBorder = validBorder || 'border-gray-700';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -44,11 +53,11 @@ function ConfirmPasswordInput({
   };
 
   return (
-    <div className={className}>
+    <div className={wrapperClass}>
       <input
-        className={`outline-none w-full p-3 border rounded focus:border-2 disabled:brightness-50 ${
-          invalid ? 'border-red-500' : 'border-gray-700'
-        } `}
+        className={`outline-none w-full p-3 disabled:brightness-50 ${
+          inputClass + ' ' + (invalid ? invalidBorder : validBorder)
+        }`}
         type='password'
         placeholder='Confirm password'
         name='confirmPassword'

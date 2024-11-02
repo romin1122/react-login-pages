@@ -9,14 +9,27 @@ type InputsType = {
 
 type PasswordInputProps = {
   setInputs: React.Dispatch<React.SetStateAction<InputsType>>;
-  className?: string;
+  wrapperClass?: string;
+  inputClass?: string;
+  invalidBorder?: string;
+  validBorder?: string;
   disabled?: boolean;
 };
 
-function PasswordInput({ setInputs, className, disabled }: PasswordInputProps) {
+function PasswordInput({
+  setInputs,
+  wrapperClass,
+  inputClass,
+  invalidBorder,
+  validBorder,
+  disabled,
+}: PasswordInputProps) {
   const [input, setInput] = useState('');
   const [invalid, setInvalid] = useState(false);
   const [showError, setShowError] = useState(false);
+
+  invalidBorder = invalidBorder || 'border-red-500';
+  validBorder = validBorder || 'border-gray-700';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -39,11 +52,11 @@ function PasswordInput({ setInputs, className, disabled }: PasswordInputProps) {
   };
 
   return (
-    <div className={className}>
+    <div className={wrapperClass}>
       <input
-        className={`outline-none w-full p-3 border rounded focus:border-2 disabled:brightness-50 ${
-          invalid ? 'border-red-500' : 'border-gray-700'
-        } `}
+        className={`outline-none w-full p-3 disabled:brightness-50 ${
+          inputClass + ' ' + (invalid ? invalidBorder : validBorder)
+        }`}
         type='password'
         placeholder='Password'
         name='password'

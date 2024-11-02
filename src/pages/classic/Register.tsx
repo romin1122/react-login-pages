@@ -16,7 +16,7 @@ function Register() {
         <OAuth startText='Sign up' />
       </div>
       <LinkButton
-        className='lg:mt-10 w-full text-center m-2 overflow-x-visible'
+        wrapperClass='lg:mt-10 w-full text-center m-2 overflow-x-visible'
         preText='Already on Pheonix?'
         linkText='Login'
         linkTo='/classic/login'

@@ -9,7 +9,7 @@ export default () => {
 
   return (
     <div className='w-screen h-screen flex'>
-      <div className=' w-1/2 flex-1 bg-[url("../cool-background2.png")] bg-auto text-white flex flex-col justify-between items-center pt-10 pb-8'>
+      <div className='hidden lg:flex w-1/2 lg:flex-1 bg-[url("../cool-background2.png")] bg-auto text-white lg:flex-col justify-between items-center pt-10 pb-8'>
         <div className='w-[500px] flex flex-col gap-8'>
           <div className='text-8xl font-semibold pl-2'>✳</div>
           <div className='text-7xl font-semibold'>Go LightSpeed!</div>
@@ -23,14 +23,15 @@ export default () => {
           &#169; 2024 LightSpeed. All rights reserved.
         </footer>
       </div>
-      <div className='h-full w-1/2 flex-1'>
-        <nav className='text-3xl font-extrabold w-full flex justify-center'>
+      <div className='h-full w-1/2 flex-1 '>
+        <nav className='w-full lg:flex lg:justify-center'>
           <Link to='/modern/login'>
-            <div className='text-[#3a86ff] px-7 mt-32 italic md:w-[380px]'>
+            <div className='text-3xl font-extrabold text-[#3a86ff] px-7 py-6 lg:px-8 lg:py-0 lg:mt-32 lg:mx-6 md:w-[380px]'>
               LightSpeed
             </div>
           </Link>
         </nav>
+
         <Outlet />
       </div>
     </div>
