@@ -12,6 +12,7 @@ function Login() {
           preText="Don't have an account?"
           linkText='Create one now.'
           linkTo='/modern/register'
+          textClass='!text-[#3a86ff]'
         />
         <ModernLoginForm className='mb-3' />
 
@@ -22,6 +23,7 @@ function Login() {
           preText='Forgot password?'
           linkText='Click here'
           linkTo='/modern/forgot-password'
+          textClass='!text-[#3a86ff]'
         />
       </div>
     </main>

@@ -24,9 +24,9 @@ export default () => {
         </footer>
       </div>
       <div className='h-full w-1/2 flex-1 '>
-        <nav className='w-full lg:flex lg:justify-center'>
+        <nav className='w-full lg:flex lg:justify-center lg:mt-32'>
           <Link to='/modern/login'>
-            <div className='text-3xl font-extrabold text-[#3a86ff] px-7 py-6 lg:px-8 lg:py-0 lg:mt-32 lg:mx-6 md:w-[380px]'>
+            <div className='text-3xl font-extrabold text-gray-900 px-7 py-6 lg:px-8 lg:py-0 lg:mx-6 md:w-[380px]'>
               LightSpeed
             </div>
           </Link>

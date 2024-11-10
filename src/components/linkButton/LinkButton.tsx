@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 type RegisterButtonProps = {
-  preText: string;
+  preText?: string;
   wrapperClass?: string;
   textClass?: string;
   linkText: string;
@@ -15,17 +15,18 @@ function LinkButton({
   linkText,
   linkTo,
 }: RegisterButtonProps) {
+  preText = preText || '';
   return (
-    <div className={wrapperClass}>
-      {preText + ' '}
-      <Link to={linkTo}>
+    <Link to={linkTo}>
+      <div className={wrapperClass}>
+        {preText + ' '}
         <span
           className={'text-[#c1121f] font-bold hover:underline ' + textClass}
         >
           {linkText}
         </span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { validateEmail } from '../../utilities/inputValidations';
+import { validatePhone } from '../../utilities/inputValidations';
 
 type InputsType = {
   emailOrPhone: string;
@@ -16,7 +16,7 @@ type EmailOrPhoneInputProps = {
   disabled?: boolean;
 };
 
-function EmailInput({
+function PhoneInput({
   setInputs,
   wrapperClass,
   inputClass,
@@ -38,14 +38,14 @@ function EmailInput({
       emailOrPhone: e.target.value,
     }));
 
-    if (validateEmail(e.target.value)) {
+    if (validatePhone(e.target.value)) {
       setInvalid(false);
       setShowError(false);
     }
   };
 
   const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!validateEmail(e.target.value)) {
+    if (!validatePhone(e.target.value)) {
       setInvalid(true);
       setShowError(true);
     }
@@ -58,17 +58,17 @@ function EmailInput({
           inputClass + ' ' + (invalid ? invalidBorder : validBorder)
         }`}
         type='text'
-        placeholder='Email'
-        name='email'
+        placeholder='Phone'
+        name='phone'
         value={input}
         onChange={handleChange}
         onBlur={handleBlur}
         disabled={disabled}
       />
 
-      {showError && <div className='text-red-500'>Invalid email!</div>}
+      {showError && <div className='text-red-500'>Invalid phone number!</div>}
     </div>
   );
 }
 
-export default EmailInput;
+export default PhoneInput;

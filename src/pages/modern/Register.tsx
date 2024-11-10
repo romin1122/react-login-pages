@@ -12,6 +12,7 @@ function Register() {
           preText='Already registered?'
           linkText='Login.'
           linkTo='/modern/login'
+          textClass='!text-[#3a86ff]'
         />
 
         <ModernRegisterForm className='mb-3' />

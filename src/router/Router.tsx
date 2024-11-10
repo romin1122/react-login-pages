@@ -10,6 +10,11 @@ import ModernForgotPassword from '../pages/modern/ForgotPassword';
 import ModernLayout from '../pages/modern/Layout';
 import ModernRegister from '../pages/modern/Register';
 
+import SimpleLogin from '../pages/simple/Login';
+import SimpleForgotPassword from '../pages/simple/ForgotPassword';
+import SimpleLayout from '../pages/simple/Layout';
+import SimpleRegister from '../pages/simple/Register';
+
 export default createBrowserRouter([
   {
     path: '/',
@@ -36,6 +41,18 @@ export default createBrowserRouter([
       {
         path: '/modern/forgot-password',
         element: <ModernForgotPassword />,
+      },
+    ],
+  },
+  {
+    path: '/simple',
+    element: <SimpleLayout />,
+    children: [
+      { path: '/simple/login', element: <SimpleLogin /> },
+      { path: '/simple/register', element: <SimpleRegister /> },
+      {
+        path: '/simple/forgot-password',
+        element: <SimpleForgotPassword />,
       },
     ],
   },
