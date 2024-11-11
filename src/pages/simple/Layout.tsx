@@ -7,7 +7,7 @@ export default () => {
   });
 
   return (
-    <div className='w-screen h-screen flex'>
+    <div className='w-screen min-h-full lg:h-screen flex'>
       <Outlet />
     </div>
   );
