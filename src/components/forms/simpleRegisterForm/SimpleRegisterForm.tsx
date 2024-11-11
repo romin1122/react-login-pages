@@ -17,7 +17,7 @@ type InputsType = {
 };
 
 function SimpleRegisterForm() {
-  const users = [{ emailOrPhone: 'tester@gmail.com', password: '12345678' }];
+  //const users = [{ emailOrPhone: 'tester@gmail.com', password: '12345678' }];
   const [inputs, setInputs] = useState<InputsType>({
     emailOrPhone: '',
     password: '',
