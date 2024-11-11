@@ -25,7 +25,7 @@ function Homepage() {
               src='/classic/login'
             />
             <Card title='Modern' img='/modern-login.jpg' src='/modern/login' />
-            <Card title='Elegant' img='' src='/simple/login' />
+            <Card title='Elegant' img='/simple-login.jpg' src='/simple/login' />
           </div>
         </div>
       </main>
